@@ -32,7 +32,7 @@ import (
 //
 //  // Where age > 32 and age < 35
 //  db.Cond{"age >": 32, "age <": 35}
-type Cond db.Cond
+type Cond = db.Cond
 
 // MySQL is a MySQL client.
 type MySQL struct {
