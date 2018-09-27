@@ -105,7 +105,7 @@ func (c *Client) Up(content []byte) (err error) {
 						return
 					}
 
-					_, err = c.client.Do(convert(buf.String())).Result()
+					_, err = c.client.Do(convert(buf.String())...).Result()
 					if err != nil {
 						return
 					}
@@ -124,7 +124,7 @@ func (c *Client) Up(content []byte) (err error) {
 					return
 				}
 
-				_, err = c.client.Do(convert(buf.String())).Result()
+				_, err = c.client.Do(convert(buf.String())...).Result()
 				if err != nil {
 					return
 				}
@@ -177,7 +177,7 @@ func (c *Client) Down(content []byte) (err error) {
 						return
 					}
 
-					_, err = c.client.Do(convert(buf.String())).Result()
+					_, err = c.client.Do(convert(buf.String())...).Result()
 					if err != nil {
 						return
 					}
@@ -196,7 +196,7 @@ func (c *Client) Down(content []byte) (err error) {
 					return
 				}
 
-				_, err = c.client.Do(convert(buf.String())).Result()
+				_, err = c.client.Do(convert(buf.String())...).Result()
 				if err != nil {
 					return
 				}
