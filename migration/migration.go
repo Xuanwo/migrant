@@ -128,6 +128,7 @@ func Up() (id string, err error) {
 		return
 	}
 
+	id = m.ID
 	return
 }
 
@@ -166,6 +167,7 @@ func Down() (id string, err error) {
 		return
 	}
 
+	id = m.ID
 	return
 }
 
