@@ -64,3 +64,8 @@ func NewRedisSentinel(opt *RedisSentinelOptions) (r *Redis, err error) {
 
 	return
 }
+
+func init() {
+	// We should not print log to stdout.
+	redis.SetLogger(nil)
+}
