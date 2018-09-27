@@ -59,6 +59,13 @@ func New(opt []byte) (c *Client, err error) {
 
 	c.migrationTable = cfg.MigrationTable
 
+	if c.migrationTable != "" {
+		_, err = c.client.Exec(schemaMigrationTable)
+		if err != nil {
+			return
+		}
+	}
+
 	return
 }
 
