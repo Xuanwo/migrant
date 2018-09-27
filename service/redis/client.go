@@ -98,21 +98,39 @@ func (c *Client) Up(content []byte) (err error) {
 
 			if len(keys) >= 100 {
 				for _, t := range tmpl {
+					buf.Reset()
+
 					err = t.Execute(buf, keys)
 					if err != nil {
 						return
 					}
 
-					_, err = c.client.Do(buf.String()).Result()
+					_, err = c.client.Do(convert(buf.String())).Result()
 					if err != nil {
 						return
 					}
-
-					buf.Reset()
 				}
 
 				keys = arr[0:0]
 			}
+		}
+
+		if len(keys) > 0 {
+			for _, t := range tmpl {
+				buf.Reset()
+
+				err = t.Execute(buf, keys)
+				if err != nil {
+					return
+				}
+
+				_, err = c.client.Do(convert(buf.String())).Result()
+				if err != nil {
+					return
+				}
+			}
+
+			keys = arr[0:0]
 		}
 	}
 
@@ -152,21 +170,39 @@ func (c *Client) Down(content []byte) (err error) {
 
 			if len(keys) >= 100 {
 				for _, t := range tmpl {
+					buf.Reset()
+
 					err = t.Execute(buf, keys)
 					if err != nil {
 						return
 					}
 
-					_, err = c.client.Do(buf.String()).Result()
+					_, err = c.client.Do(convert(buf.String())).Result()
 					if err != nil {
 						return
 					}
-
-					buf.Reset()
 				}
 
 				keys = arr[0:0]
 			}
+		}
+
+		if len(keys) > 0 {
+			for _, t := range tmpl {
+				buf.Reset()
+
+				err = t.Execute(buf, keys)
+				if err != nil {
+					return
+				}
+
+				_, err = c.client.Do(convert(buf.String())).Result()
+				if err != nil {
+					return
+				}
+			}
+
+			keys = arr[0:0]
 		}
 	}
 
