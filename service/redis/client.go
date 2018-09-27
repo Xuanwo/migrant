@@ -218,7 +218,7 @@ func (c *Client) scan(pattern string, ch chan string) {
 	it := uint64(0)
 
 	for {
-		keys, it, err = c.client.Scan(it, pattern, 100).Result()
+		keys, it, err = c.client.Scan(it, pattern, 1000).Result()
 		if err != nil {
 			log.Fatalf("Redis failed err %v.", err)
 		}
