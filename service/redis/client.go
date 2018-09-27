@@ -212,10 +212,13 @@ func (c *Client) Down(content []byte) (err error) {
 func (c *Client) scan(pattern string, ch chan string) {
 	defer close(ch)
 
+	var keys []string
+	var err error
+
 	it := uint64(0)
 
 	for {
-		keys, it, err := c.client.Scan(it, pattern, 100).Result()
+		keys, it, err = c.client.Scan(it, pattern, 100).Result()
 		if err != nil {
 			log.Fatalf("Redis failed err %v.", err)
 		}
