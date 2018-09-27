@@ -109,7 +109,7 @@ func Up() (id string, err error) {
 	}
 
 	switch m.Type {
-	case constants.RecordMySQL:
+	case constants.RecordSQL:
 		err = mysqlSrv.Up(content)
 		if err != nil {
 			return
@@ -147,7 +147,7 @@ func Down() (id string, err error) {
 	}
 
 	switch m.Type {
-	case constants.RecordMySQL:
+	case constants.RecordSQL:
 		err = mysqlSrv.Down(content)
 		if err != nil {
 			return
@@ -192,7 +192,7 @@ func Sync() (m []model.Record, err error) {
 		}
 
 		switch v.Type {
-		case constants.RecordMySQL:
+		case constants.RecordSQL:
 			err = mysqlSrv.Up(content)
 			if err != nil {
 				return nil, err

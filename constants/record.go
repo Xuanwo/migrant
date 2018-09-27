@@ -2,6 +2,6 @@ package constants
 
 // Available record type.
 const (
-	RecordMySQL = "mysql"
+	RecordSQL   = "sql"
 	RecordRedis = "redis"
 )
